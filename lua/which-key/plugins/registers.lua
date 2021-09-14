@@ -9,7 +9,11 @@ M.actions = {
   { trigger = "<c-r>", mode = "c" },
 }
 
-function M.setup(_wk, _config, options)
+function M.setup(_wk, config, options)
+  if config.nowait ~= true then
+    return
+  end
+
   for _, action in ipairs(M.actions) do
     table.insert(options.triggers_nowait, action.trigger)
   end

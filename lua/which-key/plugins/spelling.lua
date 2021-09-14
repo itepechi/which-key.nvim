@@ -7,6 +7,10 @@ M.actions = { { trigger = "z=", mode = "n" } }
 M.opts = {}
 
 function M.setup(_wk, config, options)
+  if config.nowait ~= true then
+    return
+  end
+
   table.insert(options.triggers_nowait, "z=")
   M.opts = config
 end

@@ -73,11 +73,18 @@ WhichKey comes with the following defaults:
 ```lua
 {
   plugins = {
-    marks = true, -- shows a list of your marks on ' and `
-    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    marks = {
+      enabled = true, -- shows a list of your marks on ' and `
+      nowait = true, -- show marks immediately on key press
+    },
+    registers = {
+      enabled = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+      nowait = true, -- show registers immediately on key press
+    },
     spelling = {
       enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
       suggestions = 20, -- how many suggestions should be shown in the list?
+      nowait = true, -- show suggestions immediately on key press
     },
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
     -- No actual key bindings are created

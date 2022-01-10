@@ -32,14 +32,14 @@ function M.show()
     width = vim.o.columns
       - config.options.window.margin[2]
       - config.options.window.margin[4]
-      - (config.options.window.border ~= "none" and 2 or 0),
+      - (vim.fn.has("nvim-0.6") == 0 and config.options.window.border ~= "none" and 2 or 0),
     height = config.options.layout.height.min,
     focusable = false,
     anchor = "SW",
     border = config.options.window.border,
     row = vim.o.lines
       - config.options.window.margin[3]
-      - (config.options.window.border ~= "none" and 2 or 0)
+      - (vim.fn.has("nvim-0.6") == 0 and config.options.window.border ~= "none" and 2 or 0)
       - vim.o.cmdheight,
     col = config.options.window.margin[2],
     style = "minimal",
@@ -55,6 +55,8 @@ function M.show()
   -- vim.api.nvim_win_hide(M.win)
   vim.api.nvim_win_set_option(M.win, "winhighlight", "NormalFloat:WhichKeyFloat")
   vim.api.nvim_win_set_option(M.win, "foldmethod", "manual")
+  vim.api.nvim_win_set_option(M.win, 'winblend', config.options.window.winblend)
+
   vim.cmd([[autocmd! WinClosed <buffer> lua require("which-key.view").on_close()]])
 end
 
@@ -283,9 +285,9 @@ function M.on_keys(opts)
     if c == Util.t("<esc>") then
       M.on_close()
       break
-    elseif c == Util.t("<c-d>") then
+    elseif c == Util.t(config.options.popup_mappings.scroll_down) then
       M.scroll(false)
-    elseif c == Util.t("<c-u>") then
+    elseif c == Util.t(config.options.popup_mappings.scroll_up) then
       M.scroll(true)
     elseif c == Util.t("<bs>") then
       M.back()

@@ -12,13 +12,14 @@
 ---@field script number
 ---@field sid number
 ---@field silent number
----@field id string terminal codes for lhs
+---@field id string terminal keycodes for lhs
+---@field desc string
 local Keymap
 
 ---@class KeyCodes
 ---@field keys string
----@field term string[]
----@field nvim string[]
+---@field internal string[]
+---@field notation string[]
 local KeyCodes
 
 ---@class MappingOptions
@@ -32,6 +33,7 @@ local MappingOptions
 ---@field buf number
 ---@field group boolean
 ---@field label string
+---@field desc string
 ---@field prefix string
 ---@field cmd string
 ---@field opts MappingOptions

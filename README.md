@@ -164,7 +164,7 @@ Default options for `opts`
   mode = "n", -- NORMAL mode
   -- prefix: use "<leader>f" for example for mapping everything related to finding files
   -- the prefix is prepended to every mapping part of `mappings`
-  prefix = "", 
+  prefix = "",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps
   noremap = true, -- use `noremap` when creating keymaps
@@ -241,6 +241,10 @@ wk.register({
 
 </details>
 
+**Tips:** The default label is `keymap.desc` or `keymap.rhs` or `""`,
+ `:h nvim_set_keymap()` to get more details about `desc` and `rhs`.
+
+
 ### 🚙 Operators, Motions and Text Objects
 
 **WhichKey** provides help to work with operators, motions and text objects.
@@ -253,9 +257,9 @@ wk.register({
   + see [here](https://github.com/folke/which-key.nvim/blob/main/lua/which-key/plugins/presets/init.lua#L5) for the full list part of the preset
 * text objects are automatically retrieved from **operator pending** key maps (`omap`)
   + set `plugins.presets.text_objects` to `true` to configure built-in text objects
-  + see [here](https://github.com/folke/which-key.nvim/blob/423a50cccfeb8b812e0e89f156316a4bd9d2673a/lua/which-key/plugins/presets/init.lua#L43)
+  + see [here](https://github.com/folke/which-key.nvim/blob/main/lua/which-key/plugins/presets/init.lua#L43)
 * motions are part of the preset `plugins.presets.motions` setting
-  + see [here](https://github.com/folke/which-key.nvim/blob/423a50cccfeb8b812e0e89f156316a4bd9d2673a/lua/which-key/plugins/presets/init.lua#L20)
+  + see [here](https://github.com/folke/which-key.nvim/blob/main/lua/which-key/plugins/presets/init.lua#L20)
 
 <details>
 <summary>How to disable some operators? (like v)</summary>
